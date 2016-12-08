@@ -1,0 +1,12 @@
+---
+vars:
+
+server_name: 192.168.124.245
+
+LOCAL_HOME: "/home/stagiaire/PycharmProjects/web_server_flask"
+
+REMOTE_HOME: "/www"
+
+MAIN_PY: "hello.py" # main file to launch website
+
+PORT: 5000 # port of the website

@@ -1,0 +1,21 @@
+---
+- name: Install flask
+  command: pip3  install flask
+
+- name: Install flask_script
+  command: pip3  install flask_script
+
+- name: Install flask_bootstrap
+  command: pip3  install flask_bootstrap
+
+- name: Install flask_moment
+  command: pip3  install flask_moment
+
+- name: Install flask_wtf
+  command: pip3  install flask_wtf
+
+- name: Install flask_wtf
+  command: pip3  install flask_wtf
+
+- name: Reload ansible_facts
+  setup:

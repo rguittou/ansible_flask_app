@@ -1,0 +1,52 @@
+---
+- name: upgrade all packages
+  yum: name='*' state=latest
+  sudo: yes
+  tags: update
+
+- name: Install epel-release
+  yum:  name=epel-release state=latest
+  sudo: yes
+  tags: epel
+
+- name: Install python3.4
+  yum:  name=python34u state=latest
+  sudo: yes
+  tags: python3
+
+- name: Install libselinux-python
+  yum:  name=libselinux-python state=latest
+  sudo: yes
+
+- name: Install lsof for process management
+  yum: name=lsof state=latest
+  sudo: yes
+
+- name: Install git
+  yum: name=git state=latest
+  sudo: yes
+
+- name: Install Python-devel
+  yum: name=python34u-devel state=latest
+  sudo: yes
+
+- name: Install wget
+  yum: name=wget state=latest
+  sudo: yes
+
+- name: Create remote directory
+  file: path={{REMOTE_HOME}} state=directory
+
+- name: download get-pip.py
+  get_url:
+    url: https://bootstrap.pypa.io/get-pip.py
+    dest: '{{REMOTE_HOME}}'
+    mode: 0755
+
+- name: Install pip3
+  shell:  " python3.4 {{REMOTE_HOME}}/get-pip.py"
+
+  sudo: yes
+
+- name: Reload ansible_facts
+  setup:
